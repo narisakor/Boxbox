@@ -1,12 +1,27 @@
 package com.workshop.myapplication;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.workshop.myapplication.model.Box;
+import com.workshop.myapplication.services.RequestAPI;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.List;
+
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
 
 public class InputOutActivity extends AppCompatActivity {
 
@@ -37,4 +52,6 @@ public class InputOutActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

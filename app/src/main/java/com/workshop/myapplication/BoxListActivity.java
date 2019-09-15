@@ -1,6 +1,7 @@
 package com.workshop.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,7 +52,7 @@ public class BoxListActivity extends AppCompatActivity {
     private void setAdapter() {
 
         adapter = new BoxAdapter(this, boxes);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2,LinearLayoutManager.VERTICAL , false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3,LinearLayoutManager.VERTICAL , false));
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
         recyclerView.setAdapter(adapter);
@@ -69,10 +70,12 @@ public class BoxListActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(View v, int position) {
 
+                Intent intent = new Intent(BoxListActivity.this, InputActivity.class);
+                intent.putExtra("box_id" , boxes.get(position).getBoxId());
+                startActivity(intent);
+
             }
         });
-
-
     }
 
     private class CallAPI extends AsyncTask<Void, Void, String> {
